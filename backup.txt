@@ -1,0 +1,24 @@
+<div class="container">
+  <app-Logins></app-Logins> 
+</div>
+
+
+<div class="col-md-6">                                                      Prikaz usera
+            <table class="table">
+                <thead class="thead-ligh">
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let id of service.list">
+                        <td (click)="populateForm(id)">{{id.username}}</td>
+                        <td (click)="populateForm(id)">{{id.email}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(id.id_user)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

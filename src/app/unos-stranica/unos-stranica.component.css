@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    margin:auto;
+}
+
+.container form{
+    width: 38.5%;
+    margin: auto;
+    margin-bottom: 8%;
+    padding: 2vw 2vw 1vw;
+    background: rgba(22, 22, 22, 0.734);
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    border: 1px solid rgb(47, 47, 47);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    font-size: 0.8vw;
+}
+.fa-film{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px black;
+}
+
+.input-group{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+    color: #fff;
+}
+
+.input-group label{
+    flex-basis: 30%;
+    text-align:left;
+    align-self: center;
+}
+.input-group input{
+    font-family: "Nexa-Light";
+    flex-basis: 68%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 8px 4px;
+    border-bottom: 0.1vw solid rgb(133, 133, 133);
+    color: #fff;
+}
+
+.add-movie-btn{
+    margin-top: 7%;
+    margin-bottom: 4%;
+}
+
+.input-group textarea{
+    font-family: "Nexa-Light";
+    border: 1px solid rgb(133, 133, 133);
+    margin-top: 5%;
+    color:#fff;
+    background: transparent;
+    flex-basis: 68%;
+    outline: 0;
+    padding: 10px 4px;
+}
+
+.input-group label{
+    text-transform: uppercase;
+    font-family: "Nexa";
+}
+::placeholder{
+    font-size: 0.8vw;
+    color: white;
+    opacity: 0.58;
+}
+
+form button{
+    background: #5457b6;
+    color: #fff;
+    border-radius: 4px;
+    border: 0;
+    padding: 0.6vw 1.6vw;
+    outline: 0;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+form button:hover{
+    background: #6e71c6;
+}
+
+.input-group select{
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    background-image: none;
+    background: rgba(22, 22, 22, 0.734);
+}
+
+.input-group select::-ms-expand{
+    display:none;
+}
+
+.input-group select{
+    flex:0.94;
+    padding: 0.5rem;
+    color:#fff;
+    cursor:pointer;
+    border: 1px solid rgb(61, 61, 61);
+}
+

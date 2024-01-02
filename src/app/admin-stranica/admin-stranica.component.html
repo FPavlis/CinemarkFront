@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="admin-stranica.component.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <div class="heading">
+        <h1>User Details</h1>
+        <h2>User List</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+                <div class="form-group">
+                     <label>USERNAME</label>
+                     <input class="form-control form-control-lg" placeholder="Username"
+                     name="userName" #userName="ngModel" [(ngModel)]="user.username" >
+                </div>
+                <div class="form-group">
+                    <label>PASSWORD</label>
+                    <input type="password" class="form-control form-control-lg" placeholder="Password"
+                    name="password" #password="ngModel" [(ngModel)]="user.password" >
+               </div>
+                <div class="form-group">
+                     <label>EMAIL</label>
+                     <input class="form-control form-control-lg" placeholder="Email"
+                     name="email" #email="ngModel" [(ngModel)]="user.email" >
+                </div>
+                <div class="form-group">
+                    <label>CURRENT ROLE</label>
+                    <input class="form-control form-control-lg" placeholder="Role"
+                    name="role" #role="ngModel" [(ngModel)]="user.role" >
+               </div>
+                <div class="form-group">
+                    <label>CHANGE ROLE</label>
+                    <select name="format" id="selectedRole">
+                        <option selected disabled>Choose a role</option>
+                        <option value="user">user</option>
+                        <option value="admin">admin</option>
+                        <option value="superadmin">superadmin</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <button type="submit">SAVE CHANGES</button>
+               </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let us of loginService.Allusers">
+                        <td (click)="populateForm(us)">{{us.username}}</td>
+                        <td (click)="populateForm(us)">{{us.email}}</td>
+                        <td class="role" (click)="populateForm(us)">{{us.role}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(us.id_user)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="izbornik">
+        <button routerLink="/unos">ADD MORE MOVIES</button>
+        <button routerLink="/movie-management">UPDATE MOVIES/GENRES</button>
+        <h3>SUPER ADMIN MANAGEMENT BOARD </h3>
+    </div>
+
+</html>

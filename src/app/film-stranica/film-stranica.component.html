@@ -1,0 +1,79 @@
+<html>
+<head>
+<link rel="stylesheet" href="film-stranica.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+    <div class="rating-info">
+        <h1>RATING AND REVIEWS</h1>
+    </div>
+    <div class="film hide-details" id="filmBox">
+        <img src={{selectedFilm.picture_url}} (click)="openInfo()">
+        <div class="info">
+            <h1>{{selectedFilm.title}}</h1>
+            <p>Summary: {{selectedFilm.summary}}</p>
+            <p>Director: {{selectedFilm.director}}</p>
+            <p>Main Actor: {{selectedFilm.main_actor}}</p>
+            <p>Rating: {{service.rating.toFixed(2)}} </p>
+            <p class="genre">Genres:<var title="{{genr.description}}" *ngFor="let genr of genre; index as i; first as isFirst">{{" "+genr.name+" "}}</var></p>
+            <button type="button" (click)="openPopup()"><span></span>RATE</button>
+            <button type="button" (click)="trailer()"><span></span>TRAILER</button>
+            
+            <i id="bk" *ngIf="bookmarked; else isntbookmarked">
+                <svg id="bk1" xmlns="http://www.w3.org/2000/svg" margin-left="25"  width="28" height="28" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16" (click)="saveBookmark(selectedFilm.id_film)">
+                    <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+                </svg>
+            </i>
+
+            <ng-template #isntbookmarked>
+                <svg id="bk2" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16" (click)="saveBookmark(selectedFilm.id_film)">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                </svg>
+            </ng-template>
+        </div>
+        <div class="container" id="popup">
+            <div class="star-widget">
+                <input type="radio" name="rate" id="rate-5" value="5">
+                <label for="rate-5" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-4" value="4">
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-3" value="3">
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-2" value="2">
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-1" value="1">
+                <label for="rate-1" class="fas fa-star"></label>
+                <form action="#">
+                    <header></header>
+                    <div class="btn">
+                        <button class="rate-btn" type="submit" (click)="closePopup()">Post</button>
+                        <p id="votingCheck">You already voted!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section class="comment-section">
+        <h1>COMMENTS</h1>
+        <div class="comment-box">
+            <div class="add-comment">
+                <div class="profile-pic">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+                </div>
+                <textarea class="comment-input" id="commentInput" placeholder="Add a comment"></textarea>
+                <div class="send-btn-container">
+                    <button class="add-btn" (click)="saveComment()">send</button>
+                </div>
+            </div>
+            <div id="commentContainer" class="comment-container">
+                <div class="comment-card" *ngFor="let comment of selectedComments; index as i; first as isFirst">
+                    <div class="comment-header">
+                        <h3 class="comment-title">{{usernameList[i]}}</h3>
+                        <h3 class="date">{{dateList[i]}}</h3>
+                    </div>   
+                    <p>{{comment.comment}}</p>   
+                    <button *ngIf="role$==='admin' || role$==='superadmin' || +id_user$===comment.id_user" class="delete" (click)="deleteComment(comment.id_comment,comment.id_user)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </section>    
+</html>

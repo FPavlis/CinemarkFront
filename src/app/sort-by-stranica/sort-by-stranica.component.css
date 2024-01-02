@@ -1,0 +1,482 @@
+*{
+    font-family: sans-serif;
+}
+
+.content{
+    padding-left: 9%;
+    width: 100%;
+    position: relative;
+    margin-top: 4%;
+    transform: translateY(-50%);
+    color: #fefed6;
+}
+
+.content h1{
+    margin-left: 1%;
+    font-family: "Nexa";
+    font-size: 3vw;
+}
+
+.sort-content{
+    color: #fefed6;
+    font-size: 1vw;
+    font-family: "Nexa";
+}
+
+span{
+    color:#fff;
+    font-size: 2vw;
+    font-family: "Nexa";
+    display:inline-block;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 30px;
+    text-align: justify;
+}
+
+.title:hover span{
+    transition: 0.3s ease-in-out;
+    font-size: 2.1vw;
+    color: #009688;
+    cursor: pointer;
+    font-family: "Nexa";
+}
+
+
+.film{
+    width: fit-content;
+    margin: 20px auto;
+    display: flex;
+}
+
+.film img{
+    width: 10vw;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    z-index: 100;
+    box-shadow: 10px 10px 10px rgba(0,0,0,1);
+    transition: transform 1s, box-shadow 1s;
+    transition: 0.2s ease-out;
+}
+
+.film img:hover{
+    transition: 0.2s;
+    width: 11vw;
+}
+
+.film-list {
+    position:relative;
+    z-index: 0;
+    margin-bottom: 3%;
+    margin-left: 5vw;
+}
+
+.info{
+    width:70vw;
+    font-family: "Nexa";
+    font-size: 1vw;
+    padding: 3px 50px;  
+    transform: translateX(0px);
+    opacity: 1;
+    color:#fefed6;
+    transition: transform 1s, opacity 1s;
+    word-wrap: break-word;
+    margin-left: 1vw;
+    font-weight: bold;
+}
+
+.hide-details .info{
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.dropdown{
+    margin-left: 10%;
+    margin-right: -9%;
+    display:inline-block;
+    margin-bottom: 3%;
+    font-size: 1vw;
+}
+
+.dropdown input{
+    border: none;
+    border-radius: 5%;
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    background-color:rgb(59, 59, 59);
+    font-family: "Nexa";
+    padding: 14px 16px;
+    margin: 0;
+    width: 35%;
+}
+
+.dropdown a:active{
+    background-color: chartreuse;
+}
+
+.dropdown ul{
+    padding-left: 0%;
+    margin-block-end: auto;
+    transition: all 0.10s ease;
+}
+
+.dropdown ul li{
+    list-style: none;
+}
+
+.dropdown ul li.active li.active a {
+    list-style: none;
+    background: #eee;
+    color:#000
+}
+
+.dropdown-content {
+    font-family: "Nexa";
+    display: none;
+    position: absolute;
+    background-color:#fff2;
+    backdrop-filter: blur(7px);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition-delay: 0.2s;
+    font-size: 1vw;
+}
+  
+.dropdown-content a {
+    float:none;
+    font-family: "Nexa";
+    color: #fff;
+    list-style: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    overflow: auto;
+    cursor: pointer;
+}
+  
+.dropdown-content a:hover {
+    list-style: none;
+    background-color: #009688;
+}
+
+/*.dropdown-content a{
+  visibility: inherit;
+  list-style: none;
+  color: #fff;
+  background-color: #00968777;
+}*/
+
+.dropdown-content a .list-container {
+  border: 1px solid #ccc;
+}
+
+.dropdown-content a .list-container ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.dropdown-content a .list-container li {
+  padding-left: 20px;
+}
+
+.dropdown-content a .list-container li.active {
+  border-left: 4px solid red;
+  padding-left: 16px; /* 20px - 4px = 16px */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content a.active {
+  display: block;
+  color: #fff;
+  background-color: #009688;
+}
+
+.dropdown .dropbtn {
+    border: none;
+    border-radius: 5%;
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    background-color:rgb(59, 59, 59);
+    font-family: "Nexa";
+    padding: 14px 16px;
+    margin: 0;
+    
+}
+
+.dropdown .dropbtn.active{
+    background-color: #009688;
+}
+
+.dropdown:hover .dropbtn {
+    transition-delay: 0,2s;
+}
+
+/*-------------------------- GENRE DROPDOWN -------------------*/
+
+.dropdownGenre{
+  margin-left: 10%;
+  margin-right: -9%;
+  display:inline-block;
+  margin-bottom: 3%;
+  font-size: 1vw;
+}
+
+.dropdownGenre input{
+  border: none;
+  border-radius: 5%;
+  outline: none;
+  color: white;
+  text-transform: uppercase;
+  background-color:rgb(59, 59, 59);
+  font-family: "Nexa";
+  padding: 14px 16px;
+  margin: 0;
+  width: 35%;
+}
+
+.dropdownGenre ul{
+  padding-left: 0%;
+  margin-block-end: auto;
+  transition: all 0.10s ease;
+}
+
+.dropdownGenre ul li{
+  list-style: none;
+}
+
+.dropdownGenre ul li.active li.active a {
+  list-style: none;
+  background: #eee;
+  color: white;
+}
+
+.dropdownGenre-content {
+  font-family: "Nexa";
+  display: none;
+  position: absolute;
+  background-color:#fff2;
+  backdrop-filter: blur(7px);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition-delay: 0.2s;
+  height: 288px;
+  overflow: auto;
+}
+
+
+.selected::after {
+content: '\2713'; /* Unicode for checkmark symbol */
+margin-left: 5px; /* Add some spacing between the text and checkmark */
+color: rgb(158, 54, 161); /* Customize the color of the checkmark */
+}
+
+.dropdownGenre-content a {
+  float:none;
+  font-family: "Nexa";
+  color: #fff;
+  list-style: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  overflow: auto;
+  cursor: pointer;
+}
+
+
+.dropdownGenre-content a:hover {
+  list-style: none;
+  background-color: #009688;
+}
+
+.dropdownGenre:hover .dropdownGenre-content {
+  display: block;
+}
+
+.dropdownGenre .dropbtn {
+  border: none;
+  border-radius: 5%;
+  outline: none;
+  color: white;
+  text-transform: uppercase;
+  background-color:rgb(59, 59, 59);
+  font-family: "Nexa";
+  padding: 14px 16px;
+  margin: 0;
+  
+}
+
+.dropdownGenre .dropbtn.active{
+  background-color: #009688;
+}
+
+.dropdownGenre:hover .dropbtn {
+  transition-delay: 0,2s;
+}
+
+.dropdownGenre-content::-webkit-scrollbar{
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.dropdownGenre-content::-webkit-scrollbar-thumb{
+  
+  background-color: rgba(181, 240, 240, 0.808);
+  visibility: hidden;
+}
+
+.dropdownGenre-content:hover::-webkit-scrollbar-thumb{
+  visibility: visible;
+}
+
+
+/* ------------------------- PAGINATION -----------------------*/
+
+.pagination-container {
+    display: flex;
+    justify-content: center; 
+
+  }
+
+.pagination{
+    font-family: "Nexa";
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 1vw;
+    text-align: center;
+    background-color:rgb(59, 59, 59);
+    width: 35vw;
+    margin: auto;
+    border: #000000;
+    border-style: double;
+    border-width: 1%;
+    margin-bottom: 1%;
+    padding: 0.1%;
+}
+
+.pagination-content{
+  padding-top: 3.5%;
+  margin-left: -7.5%;
+  color: #009688;
+}
+
+
+.page-link {
+    padding: 0.5rem 0.75rem;
+    margin: 0 2px;
+    background-color: #009688;
+    border: 1px solid #009688;
+    border-radius: 0.25rem;
+    color: #009688;
+    cursor: pointer;
+  }
+  
+  .page-link.active {
+    background-color: #009688;
+    color: white;
+    border-color: #009688;
+  }
+  
+  
+  .page-link:hover {
+    background-color: #364e4e;
+    border-color: #364e4e;
+    color: white;
+  }
+  
+  /* The container */
+.container {
+    float: none;
+    right: -10%;
+    display: inline-block;
+    position: relative;
+    padding-left: 3vw;
+    margin-bottom: 1vw;
+    margin-right: -40%;
+    cursor: pointer;
+    font-family: "Nexa";
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 0px;
+    font-size: 1vw;
+    text-align: center;
+  }
+
+  .container .label{
+    display: flexbox;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5vw;
+    width: 1.5vw;
+    background-color: #eee;
+    padding-left: 0px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #009688;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkmark:after {
+    left: 0.6vw;
+    top: 0.3vw;
+    width: 0.4vw;
+    height: 0.8vw;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+
+
+  
+

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Nexa";
+    src: url(src\assets\fonts\NEXA-HEAVY.TTF);
+}
+
+@font-face {
+    font-family: "Nexa-Light";
+    src: url(src\assets\fonts\NEXA-EXTRALIGHT.TTF);
+}

@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>CineMark</title>
+    <link rel="stylesheet" href="sort-by-stranica.component.css">
+
+</head>
+
+    <div class="content">
+      <h1>SORT BY:</h1>
+      </div>
+
+      <div class="dropdownGenre">
+        <button class="dropdownGenre dropbtn">Genre</button>
+        <div class="dropdownGenre-content">
+          <ul *ngFor="let genre of this.genres; index as i; first as isFirst">
+            <li><a id={{genre.name}} title="{{genre.description}}" (click)="sortFilmByGenre(genre)">{{genre.name}}</a></li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Rating</button>
+      <div class="dropdown-content">
+        <ul>
+          <li><a id="BestRated" (click)="sortFilmByBestRated()">Best Rated</a></li>
+          <li><a id="MostRated" (click)="sortFilmByRatingCount()">Most Rated</a></li>
+        </ul>
+    </div>
+  </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Year</button>
+      <div class="dropdown-content">
+        <ul>
+          <li><a id="2023" (click)="sortFilmByYear2023()">2023</a></li>
+          <li><a id="2021 - 2022" (click)="sortFilmByYear2021_2022()">2021 - 2022</a></li>
+          <li><a id="2010 - 2020" (click)="sortFilmByYear2010_2020()">2010 - 2020</a></li>
+          <li><a id="2000 - 2010" (click)="sortFilmByYear2000_2010()">2000 - 2010</a></li>
+          <li><a id="1990 - 2000" (click)="sortFilmByYear1990_2000()">1990 - 2000</a></li>
+          <li><a id="Older" (click)="sortFilmByYearOlder()">Older</a></li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <label class="container">Filter
+      <input (click)="initializeFilteredFilmsList()" id="checkbox" type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+
+    <div *ngFor="let film of displayedFilms | paginate: { id: 'paginate', itemsPerPage: pageSize, currentPage: page }">
+      <div class="component">
+        <div class="film-list">  
+          <div class="film img" id="filmBox">
+            <img src={{film.picture_url}} (click)="updateSelectedFilm(film.title)" alt="film picture" routerLink="/film">
+              <div class="title" >
+                <span (click)="updateSelectedFilm(film.title)" routerLink="/film">{{film.title}} ({{film.release_date.substring(0,4)}})</span>
+                <p class="info">Director: {{film.director}}</p>
+                <p class="info">{{film.summary}}</p>
+                <p class="info">Rating: {{(film.total_rating/film.rating_count).toFixed(2)}}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="pagination">
+      <pagination-controls  id="paginate" class="pagination-content"
+      (pageChange)="page= ($event); scrollToTop($event)"
+
+      (pageBoundsCorrection)="page =(1)"
+      previousLabel="PREVIOUS"
+      nextLabel="NEXT"
+
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+    </div>
+</html>

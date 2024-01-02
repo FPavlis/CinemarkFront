@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>CineMark</title>
+    <link rel="stylesheet" href="login-stranica.component.css">
+</head>
+
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn"  (click) = "loginACT()">Log In</button>
+                <button type="button" class="toggle-btn" (click) = "registerACT()">Register</button>
+            </div>
+            <form id="loginID" class="input-group" novalidate #form="ngForm">
+                <input type="text" class="form-control" placeholder="Username" required name="username" #Username = "ngModel" [(ngModel)]="service.formData.username" required [class.invalid]="Username.invalid && Username.touched">
+                <input type="password" class="form-control" placeholder="Password" required name="password" #Password = "ngModel" [(ngModel)]="service.formData.password" required minlength="4">  
+                <button type="submit" class="submit-btn" [disabled]="form.invalid" (click)="onLogin(form)">Log In</button>
+            </form>
+            <form id="registerID" class="input-group" name="form" novalidate #form="ngForm" (submit)="onSubmit(form)">
+                <input type="text" class="form-control" placeholder="Username" name="username" #username = "ngModel" minlength="3" [(ngModel)]="service.formData.username" required [class.invalid]="Username.invalid && Username.touched">
+                
+                <input type="email" class="form-control" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="service.formData.email" required email  [class.invalid]="email.invalid && email.touched" >
+                
+                <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="service.formData.password" required>
+                 
+                <button type="submit" [disabled]="form.invalid" class="submit-btn">Register</button>         
+            </form>
+        </div>
+   
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="search-stranica.component.css">
+</head>
+<div class="content">
+    <h1>Search results:</h1>
+  </div>
+
+  <div *ngFor="let film of service.searchFilms | paginate: { id: 'paginate', itemsPerPage: pageSize, currentPage: page }" class="component ">
+    <div class="film-list">  
+      <div class="film img" id="filmBox">
+        <img src={{film.picture_url}} (click)="updateSelectedFilm(film.title)" alt="film picture" routerLink="/film">
+          <div class="title" >
+            <span (click)="updateSelectedFilm(film.title)" routerLink="/film">{{film.title}} ({{film.release_date.substring(0,4)}})</span>
+            <p class="info">Director: {{film.director}}</p>
+            <p class="info">{{film.summary}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <pagination-controls  id="paginate" class="pagination-content"
+    (pageChange)="page= ($event); scrollToTop($event)"
+    (pageBoundsCorrection)="page =(1)"
+    previousLabel="Previous"
+    nextLabel="Next"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+  </div>
+
+</html>

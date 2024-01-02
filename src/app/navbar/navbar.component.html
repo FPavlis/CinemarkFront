@@ -1,0 +1,38 @@
+    <body>
+        <link rel="stylesheet" href="navbar.component.css">
+        <div class="banner"> 
+            <div class="navbar">
+                <img src="assets/FinalLogo.png" class="logo" routerLink=""/>
+                <ul>
+                    <li class="nav-item"><a href="">Home</a></li>
+                    <li class="nav-item"><a routerLink="/sort">Sort By</a></li>
+                    <li class="nav-item" *ngIf="isLoggedIn"><a routerLink="/bookmarks">Bookmars</a></li>
+                    <li class="nav-item">
+                        <div *ngIf="isLoggedIn; else isLogOut">
+                            <a class="nav-link" (click)="logout()">Logout</a>
+                        </div>
+    
+                        <ng-template #isLogOut>
+                            <a class="nav-link" routerLink="/login">Login</a>
+                            
+                        </ng-template>
+                    </li>
+                   
+                    <li class="nav-item2" *ngIf="isLoggedIn">
+
+                        <div *ngIf="superadmin">
+                            <a class="nav-link2" routerLink="/admin">{{ username$ }}</a>
+                        </div>
+
+                        <div *ngIf="admin">
+                            <a class="nav-link2" routerLink="/unos">{{ username$ }}</a>
+                        </div>
+                        
+                        <div *ngIf="!admin && !superadmin">
+                            <a class="nav-link2" >{{ username$ }}</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>  
+    </body>

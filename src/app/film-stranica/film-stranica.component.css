@@ -1,0 +1,431 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(header-image.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.content{
+    width: 100%;
+    position: relative;
+    margin-top: 4%;
+    transform: translateY(-50%);
+    color: #fefed6;
+}
+
+.content h1{
+    margin-left: 1%;
+    font-family: "Nexa";
+    font-size: 5vw;
+    margin-top: 11vh;
+}
+
+.film{
+    width: fit-content;
+    margin: 3vw auto;
+    display: flex;
+}
+
+.film img{
+    width: 20vw;
+    height: 30vw;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    z-index: 100;
+    box-shadow: 10px 10px 10px rgba(0,0,0,1);
+    transition: transform 1s, box-shadow 1s;
+}
+
+.info{
+    width:70vw;
+    padding: 10px 50px;  
+    transform: translateX(0px);
+    opacity: 1;
+    color:#fefed6;
+    transition: transform 1s, opacity 1s;
+    word-wrap: break-word;
+    font-size: 1vw;
+}
+
+.info h1{
+    font-size: 11vh;
+    font-weight: 500; 
+    font-family: "Nexa";
+}
+
+.info p{
+    margin-top: 2%;
+    font-family: "Nexa";
+    line-height: 26px;
+}
+
+.info button{
+    width: 13vw; 
+    padding: 0.7vw 2.6vw;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 15px;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background: #009688;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 100%;
+}
+
+button:hover{
+    border: none;
+}
+
+.close-icon{
+    width: 320px;
+    cursor: pointer;
+    position:relative;
+    transition: transform 1s;
+    opacity: 0;
+}
+
+.close-icon::before, .close-icon::after{
+    content: '';
+    height: 100%;
+    width: 2px;
+    background: #fefed6;
+    position:absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.close-icon::before{
+    transform: rotate(30deg);
+}
+
+.close-icon::after{
+    transform: rotate(-30deg);
+}
+
+.hide-details .info{
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.hide-details .close-icon{
+    transform: translateX(-410px);
+}
+
+.hide-details img{
+    transform: translateX(410px);
+    box-shadow: 0 0 0 rgba(0,0,0,1)
+}
+
+.rating-info h1{
+    color:#fefed6;
+    font-family: "Nexa";
+    margin-left: 6%;
+    font-size: 	3vw;
+}
+
+.container{
+    width: 400px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    background: #111;
+    padding: 20px 30px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-50%,-50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.container .star-widget input{
+    display: none;
+}
+
+.star-widget label{
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: #fd4;
+}
+
+input:checked ~ label{
+    color: #fd4;
+}
+
+input#rate-5:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+
+input#rate-1:checked ~ label{
+    color: rgb(255, 119, 119);
+    text-shadow: 0 0 20px rgb(153, 34, 34);
+}
+
+#rate-1:checked ~ form header:before{
+    content: "I just hated it!";
+}
+
+#rate-2:checked ~ form header:before{
+    content: "I didn't like it.";
+}
+
+#rate-3:checked ~ form header:before{
+    content: "I's okay.";
+}
+
+#rate-4:checked ~ form header:before{
+    content: "It was awesome!";
+}
+
+#rate-5:checked ~ form header:before{
+    content: "I loved it!";
+}
+ 
+form header{
+    width: 100%;
+    font-size: 1.6vw;
+    color: #fe7;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+form .btn{
+    height: 2.9vw;
+    width: 100%;
+    margin: 0.5vw 0;
+}
+
+form .btn button{
+    height: 100%;
+    width: 100%;
+    border: 1px solid#444;
+    outline: none;
+    background: #222;
+    color: #999;
+    font-size: 1.1vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+form .btn button:hover{
+    background: #1b1b1b;
+}
+
+.container form{
+    display:none;
+}
+
+input:checked ~ form{
+    display:block;
+}
+
+form .btn p{
+    color:#fefed6;
+    margin-top: 3px;
+    visibility: hidden;
+}
+
+.info svg{
+    margin-left: 25px;
+}
+
+.info svg:hover{
+    color:#009688;
+}
+
+.comment-section{
+    margin-top:10%;
+}
+.comment-box{
+    width: min(90%,1140px);
+    margin: 3rem auto;
+}
+
+.comment-section h1{
+    color:#fefed6;
+    font-family: "Nexa";
+    margin-left: 6%;
+    font-size: 3vw;
+}
+
+.comment-container{
+    position:relative;
+    
+}
+
+.comment-container::before{
+    content:"";
+    background-color: rgb(107, 107, 107);
+    position:absolute;
+    min-height:100%;
+    width: 1px;
+    left: -10px;
+}
+
+.comment-card{
+    padding: 15px;
+    background-color: #111;
+    border: 1px solid rgb(47, 47, 47);
+    border-radius: .5rem;
+    min-width: 100%;
+    margin-top: 2%;
+    word-wrap: break-word;
+}
+
+.date{
+    font-family: "Nexa";
+    font-size: 1vw;
+    color:#ffffff;
+    text-transform: uppercase;
+    margin-left: 60%;
+    
+}
+
+.comment-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.comment-title{
+    font-family: "Nexa";
+    font-size: 1.5vw;
+    color:#fefed6;
+    text-transform: uppercase;
+}
+
+.comment-card p{
+    font-family: "Nexa-Light";
+    color: white;
+    font-size: 1.3vw;
+    border:0;
+    background-color: transparent;
+    margin-top: 2%;
+}
+
+.add-comment{
+    height: 9.7vw;
+    border: 1px solid rgb(47, 47, 47);
+    display:flex;
+    background-color: #111;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    font-size: 1vw;
+
+}
+
+.add-comment .profile-pic{
+    margin-top: 3%;
+    margin-left: 4%;
+}
+
+.profile-pic img{
+    width: 4vw;
+}
+
+.add-comment .comment-input{
+    margin:auto;
+    width:70%;
+    border: 1px solid #eaecf1;
+    background-color: #353535;
+    border-radius: 0.6vw;
+    color: rgb(255, 255, 255);
+    height: 6.5vw;
+    padding: 0.9vw 1.6vw;
+    position:relative;
+    resize: none;
+}
+
+.add-comment .send-btn-container{
+    margin-top: 4%;
+    margin-right:4%;
+    align-items: flex-start;
+    display:flex;
+    justify-content: space-between;
+}
+
+.add-comment .add-btn{
+    background: #5457b6;
+    border: 0;
+    border-radius: 0.6vw;
+    color: #fff;
+    cursor:pointer;
+    font-weight: 700;
+    padding: 0.7vw 1.8vw;
+    text-transform: uppercase;
+}
+
+.add-comment .add-btn:hover{
+    background: #6e71c6;
+}
+
+
+.delete{
+    background: #0009;
+    border: 1px solid rgb(73, 73, 73);
+    font-family: "Nexa";
+    padding: .2rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    color: white;
+    width: 10%;
+    margin-left: 90%;
+    font-size: 1vw;
+}
+
+.delete:hover{
+    background: #2b2b2b;
+    border: 1px solid #2b2b2b;;
+}
+
+
+.bk{
+    height: 10vw;
+    width: 10vw;
+}
